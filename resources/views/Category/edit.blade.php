@@ -27,7 +27,7 @@
                 <!-- /.box-body -->
                 <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="submit" class="btn btn-primary">Kembali</button>
+                <a href={{route('category.index')}} class="btn btn-danger">Kembali</a>
 
                 </div>
             </form>

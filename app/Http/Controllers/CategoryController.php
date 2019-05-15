@@ -103,6 +103,7 @@ class CategoryController extends Controller
         
         $category = Category::find($id);
         $slug = str_slug($request->get('category_name'));
+        
         $category ->category_name = $request->get('category_name');
         $category ->slug = $slug;
         $category->save();
@@ -126,4 +127,35 @@ class CategoryController extends Controller
         }
         
     }
+    public function trash()
+    {
+        $category = Category::onlyTrashed()->latest()->get();
+        return view('category.trash',['yangdikirim'=>$category]);
+    }
+
+    public function restore($id)
+    {
+        $category = Category::withTrashed()->findOrFail($id);
+      
+        if($category->trashed()){
+          $category->restore();
+          return redirect()->route('category.trash')->with('status', 'category successfully restored');
+        } else {
+          return redirect()->route('category.trash')->with('status', 'category is not in trash');
+        }
+    }
+
+    public function deletePermanent($id)
+    {
+        $category = Category::withTrashed()->findOrFail($id);
+      
+        if(!$category->trashed()){
+          return redirect()->route('category.trash')->with('status', 'Book is not in trash!')->with('status_type', 'alert');
+        } 
+        else 
+        {
+            $category->forceDelete();
+            return redirect()->route('category.trash')->with('status', 'Book permanently deleted!');
+        }
+      }
 }

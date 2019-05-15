@@ -65,7 +65,7 @@
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Edit Artikel</button>
-                        <a href="#" class="btn btn-danger">Kembali</a>
+                        <a href="{{route('article.index')}}" class="btn btn-danger">Kembali</a>
                     </div>
 
                 </form>

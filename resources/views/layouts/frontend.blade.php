@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>laravel Blog</title>
+    <link rel="shortcut icon" type="image/png" href="{{asset('storage/images/content/faticon.png')}}"/>
 
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:700%7CNunito:300,600" rel="stylesheet">
 
@@ -55,9 +56,9 @@
                 <!-- nav -->
                 <div class="section-row">
                     <ul class="nav-aside-menu">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contacts</a></li>
+                        <li><a href="{{route('front')}}">Home</a></li>
+                        <li><a href="{{route('about')}}">About Us</a></li>
+                        <li><a href="{{route('contact')}}">Contacts</a></li>
                     </ul>
                 </div>
                 <!-- /nav -->

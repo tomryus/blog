@@ -11,7 +11,9 @@
   <div class="box">
     <div class="box-header">
       <h3 class="box-title">Data article</h3>
-      <button class="btn btn-light btn-sm pull-right"><a href={{route('article.create')}}>Tambah Data </a></button>
+      <button class="btn btn-danger pull-right"><a href={{route('article.trash')}}>Trash Data </a></button>
+      <br>
+      <button class="btn btn-light "><a href={{route('article.create')}}>Tambah Data </a></button>
       @if(session('status'))
       <div class="alert alert-success btn-sm alert-small" >
             {{session('status')}}

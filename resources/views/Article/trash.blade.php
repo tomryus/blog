@@ -1,19 +1,23 @@
 @extends('layouts.backend')
 @push('customcss')
-<script src={{ asset("plugins/datatables/dataTables.bootstrap.css") }}></script>
+<script src={{ asset("plugins/datatables/dataTables.bootstrap.css") }}>
+  
+</script>
 @endpush
-  @section('title','Tabel Category')
-  @section('page-title','List Category')
+  @section('title','Article')
+  @section('page-title','List Article')
   @section('content')
   <!-- Default box -->
   <div class="box">
     <div class="box-header">
-      <h3 class="box-title">Data Table With Full Features</h3>
-
-      <button class="btn btn-danger  pull-right"><a href={{route('category.trash')}}>Trash Data </a></button>
+      <h3 class="box-title">Data article</h3>
       <br>
-      <button class="btn btn-light "><a href={{route('category.create')}}>Tambah Data </a></button>
-      
+      <button class="btn btn-light "><a href={{route('article.index')}}>Kembali </a></button>
+      @if(session('status'))
+      <div class="alert alert-success btn-sm alert-small" >
+            {{session('status')}}
+      </div>
+    @endif
     </div>
     <!-- /.box-header -->
 
@@ -22,8 +26,10 @@
         <thead>
         <tr>
             <th>Nomor</th>
-            <th>Nama Category</th>
-            <th>Slug</th>
+            <th>Judul</th>
+            <th>Thumbnail</th>
+            <th>Category</th>
+            <th>Short Description</th>
             <th>Action</th>
         </tr>
         </thead>
@@ -34,16 +40,21 @@
             @foreach ($yangdikirim as $item)
         <tr>
             <td>{{$no}}</td>
-            <td>{{$item->category_name}}</td>
-            <td>{{$item->slug}}</td>
+            <td>{{$item->title}}</td>
+            <td>@if($item->thumbnail)
+                <img src="{{asset('storage/images/article/' .$item->thumbnail)}}" width="96px">
+              @endif
+            </td>
+            <td>{{$item->category->category_name}}</td>
+            <td>{{$item->short_description}}</td>
             <td>
-                <a href={{route('category.edit',$item->id)}} class="btn btn-info btn-sm"> Edit</a>
-                <a href="javascript:void(0)" onclick="$(this).find('form').submit()" class="btn btn-danger btn-sm">Delete
-                  <form method="POST" action={{route('category.destroy',$item->id) }}  onsubmit="return confirm('Delete this category temporarily?')"
-                </a>
+                  <a href={{route('article.restore',$item->id)}} class="btn btn-info btn-sm"> restore</a>
+                  <a href="javascript:void(0)" onclick="$(this).find('form').submit()" class="btn btn-danger btn-sm">Delete
+                  <form method="POST" action={{route('article.destroy',$item->id) }}  onsubmit="return confirm('Delete this article permanently?')"
+                  </a>
                 @csrf
                 @method('DELETE')
-              </form>
+                </form> 
             </td>
             <?php
             $no++;

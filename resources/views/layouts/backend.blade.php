@@ -95,11 +95,16 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
                 <li class="treeview">
+                    @if(Auth::user()->name=='roy sirait')
                 <li><a href="{{route('home')}}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
                 <li><a href="{{route('article.index')}}"><i class="fa fa-pencil"></i>Artikel</a></li>
                 <li><a href="{{route('category.index')}}"><i class="fa fa-book"></i>Category</a></li>
                 <li><a href="{{ route('password.change')}}"><i class="fa fa-key"></i>Change Password</a></li>
                 <li><a href="#"><i class="fa fa-gears"></i>Setting</a></li>
+                @else
+                <li><a href="{{route('article.index')}}"><i class="fa fa-pencil"></i>Artikel</a></li>
+                <li><a href="{{route('category.index')}}"><i class="fa fa-book"></i>Category</a></li>
+                @endif
             </li>
         </ul>
         </section>

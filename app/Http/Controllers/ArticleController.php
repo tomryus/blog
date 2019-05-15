@@ -205,11 +205,46 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         $article = Article::find($id);
-        unlink(storage_path('app/public/images/article/'.$article->image));
-        unlink(storage_path('app/public/images/article/'.$article->thumbnail));
+        //unlink(storage_path('app/public/images/article/'.$article->image));
+        //unlink(storage_path('app/public/images/article/'.$article->thumbnail));
         //Storage::delete('images/article/'.$article->image);
         //Storage::delete('images/article/'.$article->thumbnail);
         $article->delete();
         return redirect()->route('article.index')->with('status', 'Artikel berhasil dihapus');
     }
+    public function trash()
+    {
+        $article= Article::onlyTrashed()->latest()->get();
+        return view('article.trash',['yangdikirim'=>$article]);
+    }
+    public function restore($id)
+    {
+        $article = Article::withTrashed()->findOrFail($id);
+        if($article->trashed())
+        {
+            $article->restore();
+            return redirect()->route('article.trash')->with('status', 'article remove from trash!')->with('status_type', 'alert');
+           
+            
+        }else 
+        {
+            return redirect()->route('article.trash')->with('status', 'article is not in trash!')->with('status_type', 'alert');
+        }
+        
+    }
+    public function deletePermanent($id)
+    {
+        $article = Article::withTrashed()->findOrFail($id);
+      
+        if(!$article->trashed()){
+          return redirect()->route('article.trash')->with('status', 'article is not in trash!')->with('status_type', 'alert');
+        } 
+        else 
+        {
+            //unlink(storage_path('app/public/images/article/'.$article->image));
+        unlink(storage_path('app/public/images/article/'.$article->thumbnail));
+            $article->forceDelete();
+            return redirect()->route('article.trash')->with('status', 'article permanently deleted!');
+        }
+      }
 }

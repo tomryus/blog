@@ -10,7 +10,8 @@ use App\Http\Controllers\Controller;
 
 class FrontController extends Controller
 {
-    public function index( article $article){
+    public function index()
+    {
         $category = Category::withCount('article')->get();
         $article = Article::paginate(2);
         $article2 = Article::latest()->limit(2)->get();
@@ -24,15 +25,16 @@ class FrontController extends Controller
         //return $category;
         return view ('blogpost',['post'=>$article,'parsing' =>$category]);
     }
-    public function getCategory($id_category, article $article )
+    public function getCategory(category $category, article $article )
     {
         $categorycount = Category::withCount('article')->get();
-        $category = Category::findOrFail($id_category);        
+        //return $post;
+        //$category = Category::findOrFail('category');        
         if ($category !==null){
             //$posts = Article::where('id_category',$id_category)->get();
-            $posts = $category->article;
-            if($posts!==null){
-                return view('category',['post'=> $posts],['count'=>$categorycount]);
+            $post = $category->article;
+            if($post!==null){
+                return view('category',['post'=> $post],['count'=>$categorycount]);
             }else{
                 return kosong;
             }
@@ -41,6 +43,17 @@ class FrontController extends Controller
         }
 
         
+    }
+    public function contact()
+    {
+        $category = Category::withCount('article')->get();
+        return view('extend.contact',['parsing'=>$category]);
+    }
+
+    public function about()
+    {
+        $category = Category::withCount('article')->get();
+        return view('extend.about',['parsing'=>$category]);
     }
 
 }

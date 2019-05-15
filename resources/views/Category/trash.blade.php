@@ -9,10 +9,13 @@
   <div class="box">
     <div class="box-header">
       <h3 class="box-title">Data Table With Full Features</h3>
-
-      <button class="btn btn-danger  pull-right"><a href={{route('category.trash')}}>Trash Data </a></button>
-      <br>
-      <button class="btn btn-light "><a href={{route('category.create')}}>Tambah Data </a></button>
+          <br>
+      <button class="btn btn-light "><a href={{route('category.index')}}>Kembali </a></button><br>
+       @if(session('status'))
+      <div class="alert alert-success btn-sm alert-small" >
+            {{session('status')}}
+      </div>
+    @endif
       
     </div>
     <!-- /.box-header -->
@@ -37,9 +40,9 @@
             <td>{{$item->category_name}}</td>
             <td>{{$item->slug}}</td>
             <td>
-                <a href={{route('category.edit',$item->id)}} class="btn btn-info btn-sm"> Edit</a>
+                <a href={{route('category.restore',$item->id)}} class="btn btn-info btn-sm"> Restore</a>
                 <a href="javascript:void(0)" onclick="$(this).find('form').submit()" class="btn btn-danger btn-sm">Delete
-                  <form method="POST" action={{route('category.destroy',$item->id) }}  onsubmit="return confirm('Delete this category temporarily?')"
+                  <form method="POST" action={{route('category.deletePermanent',$item->id) }}  onsubmit="return confirm('Delete this category permanently?')"
                 </a>
                 @csrf
                 @method('DELETE')

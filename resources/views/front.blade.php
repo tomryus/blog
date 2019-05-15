@@ -7,7 +7,7 @@
         @endphp
         @foreach ($parsing as $item) 
             @if($item->article_count!==0)
-                <li class="cat-{{$no}}"><a href="{{route('front.category', $item->id)}}">{{$item->category_name}}</a></li>
+                <li class="cat-{{$no}}"><a href="{{route('front.category', $item->slug)}}">{{$item->category_name}}</a></li>
             @endif
         @php
             $no++;
@@ -18,7 +18,7 @@
 @push('nav1')
         @foreach ($parsing as $item)
             @if($item->article_count!==0)
-            <li class="cat-{{$no}}"><a href="{{route('front.category', $item->id)}}">{{$item->category_name}}</a></li>
+            <li class="cat-{{$no}}"><a href="{{route('front.category', $item->slug)}}">{{$item->category_name}}</a></li>
             @endif
         @endforeach
 @endpush
