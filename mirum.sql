@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Apr 2019 pada 16.54
+-- Waktu pembuatan: 15 Bulan Mei 2019 pada 10.18
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.3.0
 
@@ -38,19 +38,22 @@ CREATE TABLE `articles` (
   `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `category_id` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `delete_by` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data untuk tabel `articles`
 --
 
-INSERT INTO `articles` (`id`, `title`, `slug`, `image`, `thumbnail`, `short_description`, `content`, `category_id`, `created_at`, `updated_at`) VALUES
-(47, 'Belajar Java dengan mudah dan cepat', 'belajar-java-dengan-mudah-dan-cepat', 'article-image_5cb595914aa22.png', 'article-thumbnail_5cb595914adea.png', 'Java programing', '<p>\r\n\r\n</p><div><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p></div><div><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p></div>\r\n\r\n<br><p></p>', 2, '2019-04-14 00:14:47', '2019-04-16 01:42:57'),
-(48, 'Belajar android dengan Ionic Framework', 'belajar-android-dengan-ionic-framework', 'article-image_5cb5ebfb27f86.png', 'article-thumbnail_5cb5ebfb28f9d.png', 'andoroid framework', '<p>\r\n\r\n</p><div><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p></div><div><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p></div>\r\n\r\n<br><p></p>', 3, '2019-04-14 00:16:11', '2019-04-16 07:51:39'),
-(49, 'OOP dengan laravel Framework', 'oop-dengan-laravel-framework', 'article-image_5cb450f729334.jpg', 'article-thumbnail_5cb450f72971d.jpg', 'belajar laravel', '<p>\r\n\r\n</p><div><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p></div><div><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p></div>\r\n\r\n<br><p></p>', 4, '2019-04-14 00:17:20', '2019-04-15 02:37:59'),
-(50, 'Belajar C++ dan C dengan codeblock', 'belajar-c-dan-c-dengan-codeblock', 'article-image_5cb5df61cd8fe.png', 'article-thumbnail_5cb5df61cdce5.png', 'belajar C', '<p>\r\n\r\n</p><div><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p></div><div><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p></div>\r\n\r\n<br><p></p>', 1, '2019-04-14 00:18:30', '2019-04-16 06:57:53'),
-(52, 'Belajar database dengan mudah', 'belajar-database-dengan-mudah', 'article-image_5cb5def5e6004.png', 'article-thumbnail_5cb5def5e6fad.png', 'database mysql', '<p>ini contoh</p>', 5, '2019-04-16 06:56:06', '2019-04-16 06:56:06');
+INSERT INTO `articles` (`id`, `title`, `slug`, `image`, `thumbnail`, `short_description`, `content`, `category_id`, `created_at`, `updated_at`, `delete_by`, `deleted_at`) VALUES
+(47, 'Belajar Java dengan mudah dan cepat', 'belajar-java-dengan-mudah-dan-cepat', 'article-image_5cb595914aa22.png', 'article-thumbnail_5cb595914adea.png', 'Java programing', '<p>\r\n\r\n</p><div><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p></div><div><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p></div>\r\n\r\n<br><p></p>', 2, '2019-04-14 00:14:47', '2019-04-16 01:42:57', NULL, NULL),
+(48, 'Belajar android dengan Ionic Framework', 'belajar-android-dengan-ionic-framework', 'article-image_5cb5ebfb27f86.png', 'article-thumbnail_5cb5ebfb28f9d.png', 'andoroid framework', '<p>\r\n\r\n</p><div><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p></div><div><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p></div>\r\n\r\n<br><p></p>', 3, '2019-04-14 00:16:11', '2019-04-16 07:51:39', NULL, NULL),
+(49, 'OOP dengan laravel Framework', 'oop-dengan-laravel-framework', 'article-image_5cb450f729334.jpg', 'article-thumbnail_5cb450f72971d.jpg', 'belajar laravel', '<p>\r\n\r\n</p><div><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p></div><div><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p></div>\r\n\r\n<br><p></p>', 4, '2019-04-14 00:17:20', '2019-04-15 02:37:59', NULL, NULL),
+(50, 'Belajar C++ dan C dengan codeblock', 'belajar-c-dan-c-dengan-codeblock', 'article-image_5cb5df61cd8fe.png', 'article-thumbnail_5cb5df61cdce5.png', 'belajar C', '<p>\r\n\r\n</p><div><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p></div><div><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p></div>\r\n\r\n<br><p></p>', 1, '2019-04-14 00:18:30', '2019-04-16 06:57:53', NULL, NULL),
+(52, 'Belajar database dengan mudah', 'belajar-database-dengan-mudah', 'article-image_5cb5def5e6004.png', 'article-thumbnail_5cb5def5e6fad.png', 'database mysql', '<p>ini contoh</p>', 5, '2019-04-16 06:56:06', '2019-05-10 04:48:43', NULL, NULL),
+(53, 'cari tikus', 'cari-tikus', 'article-image_5cd2c30298159.jpg', 'article-thumbnail_5cd2c30298540.jpg', 'cari ayam banyak', '<p>test</p>', 4, '2019-05-08 04:52:34', '2019-05-14 10:50:30', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -63,19 +66,21 @@ CREATE TABLE `categories` (
   `category_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data untuk tabel `categories`
 --
 
-INSERT INTO `categories` (`id`, `category_name`, `slug`, `created_at`, `updated_at`) VALUES
-(1, 'C++ C dan C#', 'c-c-dan-c', '2019-04-08 17:00:00', '2019-04-15 21:00:56'),
-(2, 'JAVA', 'java', '2019-04-12 00:46:06', '2019-04-12 00:46:06'),
-(3, 'ANDROID', 'android', '2019-04-12 00:46:14', '2019-04-12 00:46:14'),
-(4, 'LARAVEL', 'laravel', '2019-04-12 00:46:22', '2019-04-12 00:46:22'),
-(5, 'DATABASE', 'database', '2019-04-12 00:46:49', '2019-04-16 07:48:53');
+INSERT INTO `categories` (`id`, `category_name`, `slug`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'C++ C dan C#', 'c-c-dan-c', '2019-04-08 17:00:00', '2019-05-10 02:49:35', NULL),
+(2, 'JAVA', 'java', '2019-04-12 00:46:06', '2019-04-12 00:46:06', NULL),
+(3, 'ANDROID', 'android', '2019-04-12 00:46:14', '2019-04-12 00:46:14', NULL),
+(4, 'LARAVEL', 'laravel', '2019-04-12 00:46:22', '2019-04-12 00:46:22', NULL),
+(5, 'DATABASE', 'database', '2019-04-12 00:46:49', '2019-04-16 07:48:53', NULL),
+(6, 'PHYTON', 'phyton', '2019-04-28 23:39:48', '2019-05-10 02:50:25', '2019-05-10 09:50:25');
 
 -- --------------------------------------------------------
 
@@ -188,13 +193,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT untuk tabel `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`
