@@ -4,6 +4,7 @@
 @section('page-title') Tambah Category
 @endsection
 @section('content')
+<div class="panel panel-headline">
     <div class="row">
     <!-- left column -->
         <div class="col-md-8">
@@ -33,6 +34,7 @@
             </div>
         </div>
     </div>
+</div>
     <!-- /.box -->
 
     

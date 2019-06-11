@@ -22,6 +22,7 @@ class CreateArticlesTable extends Migration
             $table->string('short_description');
             $table->text('content');
             $table->bigInteger('category_id')->unsigned()->nullable();
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
