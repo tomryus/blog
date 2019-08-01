@@ -56,7 +56,7 @@ class CategoryController extends Controller
         ]);
 
         return redirect()->
-            route('category.index');
+            route('category.index')->with('status','data berhasil ditambah');
             
     }
 
@@ -102,11 +102,18 @@ class CategoryController extends Controller
         ])->validate();
         
         $category = Category::find($id);
-        $slug = str_slug($request->get('category_name'));
         
-        $category ->category_name = $request->get('category_name');
-        $category ->slug = $slug;
-        $category->save();
+        $slug = str_slug($request->get('category_name'));
+
+
+        $category->update([
+            'category_name' => $request->get('category_name'),
+            'slug'          => $slug
+        ]);
+        
+        //$category ->category_name = $request->get('category_name');
+        //$category ->slug = $slug;
+        //$category->save();
         return redirect()->route('category.index');
     }
 

@@ -4,11 +4,13 @@
 @endpush
   @section('title','Tabel Category')
   @section('page-title','List Category')
+  
+  
   @section('content')
   <!-- Default box -->
   @php
   $dt = new DateTime();
-@endphp
+  @endphp
 
 <!-- Default box -->
 <div class="panel panel-headline">
@@ -23,7 +25,7 @@
 <div class="panel-body">
 <div class="row">
     <div class="col md-9">
-      <button type="button" class="btn btn-warning pull-right"><a href={{route('category.trash')}} >Trash Data </a></button>
+      <button type="button" class="btn btn-warning pull-right"><a href={{route('category.trash')}} ><i class="fa fa-trash-o"></i> Trash Data </a></button>
       <button type="button" class="btn btn-info ">             <a href={{route('category.create')}}>Tambah Data </a></button>
       
       @if(session('status'))
@@ -53,8 +55,8 @@
                     <td>{{$item->category_name}}</td>
                     <td>{{$item->slug}}</td>
                     <td>
-                        <a href={{route('category.edit',$item->id)}} class="btn btn-info btn-sm"> Edit</a>
-                        <a href="javascript:void(0)" onclick="$(this).find('form').submit()" class="btn btn-danger btn-sm">Delete
+                        <a href={{route('category.edit',$item->id)}} class="btn btn-info btn-sm"> <i class="lnr lnr-pencil"></i>Edit</a>
+                        <a href="javascript:void(0)" onclick="$(this).find('form').submit()" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i> Delete
                           <form method="POST" action={{route('category.destroy',$item->id) }}  onsubmit="return confirm('Delete this category temporarily?')"
                         </a>
                         @csrf
@@ -75,10 +77,13 @@
 </div>
 </div>
 <!-- /.box -->
+
 @push('datatables')
 <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables/datatables.bootstrap.min.js') }}"></script>
 @endpush
+
+
 @push('customdatatables')
 <script>
 $(function () {

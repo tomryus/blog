@@ -60,7 +60,7 @@
                               <td>{{$item->category->category_name}}</td>
                               <td>{{$item->short_description}}</td>
                               <td>
-                                    <a href={{route('article.edit',$item->id)}} class="btn btn-info btn-sm"> Edit</a>
+                                    <a href={{route('article.edit',$item->id)}} class="btn btn-info btn-sm"><i class="lnr lnr-pencil"></i> Edit</a>
                                     <a href="javascript:void(0)" onclick="$(this).find('form').submit()" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i> Delete
                                     <form method="POST" action={{route('article.destroy',$item->id) }}  onsubmit="return confirm('Delete this article permanently?')"
                                     </a>
